@@ -19,6 +19,7 @@ export function loginUser() {
 export function logoutUser(token) {
     return {
         type: LOGOUT_USER,
+        loading: true,
         token
     }
 }
@@ -41,13 +42,15 @@ export function loginFailure(err) {
 
 export function logoutSuccess() {
     return {
-        type: LOGOUT_SUCCESS
+        type: LOGOUT_SUCCESS,
+        loading: false,
     }
 }
 
 export function logoutFailure(err) {
     return {
         type: LOGOUT_FAILURE,
+        loading: false,
         err
     }
 }

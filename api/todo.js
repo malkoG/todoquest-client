@@ -12,54 +12,54 @@ const TodoAPIEntryPoint = axios.create({
 });
 
 export default const TodoAPI = {
-    getTodo: (todoId) => {
+    getTodo: (todoId, config) => {
         return TodoAPIEntryPoint
-                    .get(`/todo/${todoId}`)
+                    .get(`/todo/${todoId}`, config)
                     .then(res => res.data)
                     .catch(({response}) => {
                         throw response.data;
                     });
     },
 
-    addTodo: (data) => {
+    addTodo: (data, config) => {
         return TodoAPIEntryPoint
-                    .post('/todo/', data)
+                    .post('/todo/', data, config)
                     .then(res => res.data)
                     .catch(({response}) => {
                         throw response.data;
                     })
     },
 
-    deleteTodo: (todoId) => {
+    deleteTodo: (todoId, config) => {
         return TodoAPIEntryPoint
-                    .delete(`/todo/${todoId}`)
+                    .delete(`/todo/${todoId}`, config)
                     .then(res => res.data)
                     .catch(({response}) => {
                         throw response.data;
                     })
     },
 
-    editTodo: (todoId, data) => {
+    editTodo: (todoId, data, config) => {
         return TodoAPIEntryPoint
-                    .put(`/todo/${todoId}`, data)
+                    .put(`/todo/${todoId}`, data, config)
                     .then(res => res.data)
                     .catch(({response}) => {
                         throw response.data;
                     })
     },
 
-    completeTodo: (todoId) => {
+    completeTodo: (todoId, config) => {
         return TodoAPIEntryPoint
-                    .put(`/todo/${todoId}/complete`)
+                    .put(`/todo/${todoId}/complete`, config)
                     .then(res => res.data)
                     .catch(({response}) => {
                         throw response.data;
                     })
     },
 
-    incompleteTodo: (todoId) => {
+    incompleteTodo: (todoId, config) => {
         return TodoAPIEntryPoint
-                    .put(`/todo/${todoId}/incomplete`)
+                    .put(`/todo/${todoId}/incomplete`, config)
                     .then(res => res.data)
                     .catch(({response}) => {
                         throw response.data;

@@ -1,6 +1,6 @@
 import * as authActions from '../actions/auth'
 
-const authToken = JSON.parse(localStorage.getItem('todoquest/auth')) || [];
+const authToken = JSON.parse(localStorage.getItem('todoquest/auth')) || {};
 
 const initialState = {
     access_token: authToken.access_token,
@@ -19,8 +19,8 @@ const authReducer = (state = initialState, action) => {
         case authActions.LOGIN_SUCCESS:
             return {
                 loading: action.loading,
-                access_token: action.data.access_token,
-                refresh: action.data.refresh,
+                access_token: action.access_token,
+                refresh: action.refresh,
                 err: null
             };
         case authActions.LOGIN_FAILURE:
